@@ -4,14 +4,14 @@ with open("README.md", "r") as fh:
 	long_description = fh.read()
 
 setuptools.setup(
-	name="bugscanner",
+	name="scanme",
 	version="0.1.8",
 	author="aztecrabbit",
 	author_email="ars.xda@gmail.com",
 	description="Bug Scanner for Internet Freedom",
 	long_description=long_description,
 	long_description_content_type="text/markdown",
-	url="https://github.com/aztecrabbit/bugscanner",
+	url="https://github.com/clnMox/scanme",
 	packages=setuptools.find_packages(),
 	classifiers=[
 		"Programming Language :: Python :: 3",

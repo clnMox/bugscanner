@@ -8,7 +8,7 @@ Install
 
 **Bug Scanner**
 
-    $ python3 -m pip install bugscanner
+    $ python3 -m pip install scanme
 
 or
 
