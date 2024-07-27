@@ -1,6 +1,5 @@
 from .bug_scanner import BugScanner
 
-
 class DirectScanner(BugScanner):
     method_list = []
     host_list = []

@@ -1,8 +1,6 @@
 import argparse
 import sys
-
 from .direct_scanner import DirectScanner
-
 
 def get_arguments():
     parser = argparse.ArgumentParser(formatter_class=lambda prog: argparse.HelpFormatter(prog, max_help_position=52))
@@ -15,7 +13,7 @@ def get_arguments():
         '--mode',
         help='mode',
         dest='mode',
-        choices=('direct', 'proxy', 'ssl', 'udp'),
+        choices=('direct',),
         type=str,
         default='direct',
     )
@@ -34,19 +32,6 @@ def get_arguments():
         default='80',
     )
     parser.add_argument(
-        '--proxy',
-        help='proxy',
-        dest='proxy',
-        type=str,
-        default='',
-    )
-    # parser.add_argument(
-    #     '--deep',
-    #     help='subdomain deep',
-    #     dest='deep',
-    #     type=int,
-    # )
-    parser.add_argument(
         '--output',
         help='output file name',
         dest='output',
@@ -61,22 +46,16 @@ def get_arguments():
 
     return parser.parse_args()
 
-
 def main():
     arguments = get_arguments()
 
     method_list = arguments.method_list.split(',')
     host_list = open(arguments.filename).read().splitlines()
     port_list = arguments.port_list.split(',')
-    proxy = arguments.proxy.split(':')
+    proxy = arguments.proxy.split(':') if hasattr(arguments, 'proxy') else None
 
     if arguments.mode == 'direct':
         scanner = DirectScanner()
-
-    elif arguments.mode == 'proxy':
-        if not proxy or len(proxy) != 2:
-            sys.exit('--proxy host:port')
-
     else:
         sys.exit('Not Available!')
 
