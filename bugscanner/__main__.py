@@ -2,9 +2,6 @@ import argparse
 import sys
 
 from .direct_scanner import DirectScanner
-from .ssl_scanner import SSLScanner
-from .proxy_scanner import ProxyScanner
-from .udp_scanner import UdpScanner
 
 
 def get_arguments():
@@ -76,20 +73,9 @@ def main():
 	if arguments.mode == 'direct':
 		scanner = DirectScanner()
 
-	elif arguments.mode == 'ssl':
-		scanner = SSLScanner()
-
 	elif arguments.mode == 'proxy':
 		if not proxy or len(proxy) != 2:
 			sys.exit('--proxy host:port')
-
-		scanner = ProxyScanner()
-		scanner.proxy = proxy
-
-	elif arguments.mode == 'udp':
-		scanner = UdpScanner()
-		scanner.udp_server_host = 'bugscanner.tppreborn.my.id'
-		scanner.udp_server_port = '8853'
 
 	else:
 		sys.exit('Not Available!')
