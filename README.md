@@ -8,12 +8,12 @@ Install
 
 **Bug Scanner**
 
-    $ python3 -m pip install scanme
+    $ python3 -m pip install bugscanner
 
 or
 
-    $ git clone https://github.com/clnMox/scanme
-    $ cd scanme
+    $ git clone https://github.com/clnMox/bugscanner
+    $ cd bugscanner
     $ python3 -m pip install -r requirements.txt
     $ python3 setup.py install
 
@@ -37,7 +37,7 @@ Scan only when using the website quota you want to scan
 Updating
 --------
 
-    $ python3 -m pip install --upgrade scanme
+    $ python3 -m pip install --upgrade bugscanner
 
 
 Note
