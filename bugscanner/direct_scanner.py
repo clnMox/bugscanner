@@ -1,10 +1,11 @@
 from .bug_scanner import BugScanner
 
+
 class DirectScanner(BugScanner):
     method_list = []
     host_list = []
     port_list = []
-    domains_with_status = []  # List to store domains with status codes
+    domains_with_status = []
 
     def log_info(self, **kwargs):
         for x in ['color', 'status_code', 'server']:
@@ -37,7 +38,7 @@ class DirectScanner(BugScanner):
 
         # Store the domain with status code
         if kwargs['status_code']:
-            self.domains_with_status.append(kwargs['host'])
+            self.domains_with_status.append(f"{kwargs['method']:<6} {kwargs['status_code']:<4} {kwargs['server']:<22} {kwargs['port']:<4} {kwargs['host']}")
 
     def get_task_list(self):
         for method in self.filter_list(self.method_list):

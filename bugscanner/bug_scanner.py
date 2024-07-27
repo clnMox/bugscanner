@@ -1,5 +1,6 @@
 import multithreading
 
+
 class BugScanner(multithreading.MultiThreadRequest):
     threads: int
 
